@@ -27,3 +27,17 @@ usd_total=9,373,781
 ```
 
 While Uniswap TVL in the UI expressed $9.36m.
+
+## Calc docs reference (Overview)
+
+The method used to convert the TCL NFTs into **USD** denomination is based on the usage of the following variables: square of the current pool price, square of TCL range ticks and liquidity held within. Under uniswap v3, the liquidity variable, can be thought as the square root of `x * y`, where x and y is the respective amounts of virtual token0 and virtual token1. Keep in mind that the liquidity does not include the fees accumulated, since last contract touch. So, if need be, they may be included with additional computation.
+
+Once, the breakdown amounts of token0 (**wbtc**) and token1 (**badger**) are calculated using uniswapv3 library contract, we can leverage chainlink oracles to convert the amounts of tokens into an **USD** value which could be digested by other contract to have a reference into the value of a specific NFT-tokenID at all times and on-chain.
+
+Documentation reference:
+
+1. https://uniswap.org/whitepaper-v3.pdf
+2. https://docs.uniswap.org/protocol/reference/periphery/libraries/LiquidityAmounts#getamountsforliquidity
+3. https://github.com/Uniswap/v3-periphery/blob/main/contracts/libraries/LiquidityAmounts.sol#L120
+4. https://docs.chain.link/docs/faq/#why-is-latestanswer-reported-at-8-decimals-for-some-contracts-but-for-other-contracts-it-is-reported-with-18-decimals
+
