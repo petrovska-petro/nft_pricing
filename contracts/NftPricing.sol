@@ -42,8 +42,8 @@ contract NftPricing {
         view
         returns (uint256 btcPrice, uint256 badgerPrice)
     {
-        (, btcPrice, , , ) = oracleBtcPricing.latestRoundData();
-        (, badgerPrice, , , ) = oracleBadgerPricing.latestRoundData();
+        btcPrice = oracleBtcPricing.latestAnswer();
+        badgerPrice = oracleBadgerPricing.latestAnswer();
     }
 
     /// @dev express in token amounts a NFT-tokenID holdings
