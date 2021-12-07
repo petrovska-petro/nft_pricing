@@ -26,4 +26,4 @@ usd_value_upper=4,463,783
 usd_total=9,373,781
 ```
 
-While Uniswap TVL in the UI expressed $9.6m.
+While Uniswap TVL in the UI expressed $9.36m.
